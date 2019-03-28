@@ -288,24 +288,13 @@ class StackOverflow extends Serializable {
     }
     ((comp1 / count).toInt, (comp2 / count).toInt)
   }
-
-  private[this] def medianCalculation(xs: List[Int]): Int = {
-    val xsSorted = xs.sortWith(_ < _)
-    val xsLen = xs.length
-    if (xsLen % 2 != 0)
-      xsSorted.drop(xsLen / 2).head
-    else {
-      val xsStart = xsLen / 2 - 1
-      val xsSortedDropped = xsSorted.drop(xsStart)
-      (xsSortedDropped.head + xsSortedDropped.tail.head) / 2
-    }
-  }
-
+  
   //
   //
   //  Displaying results:
   //
   //
+  
   def clusterResults(means: Array[(Int, Int)], vectors: RDD[(LangIndex, HighScore)]): Array[(String, Double, Int, Int)] = {
     val closest = vectors.map(p => (findClosest(p, means), p))
     val closestGrouped = closest.groupByKey()
