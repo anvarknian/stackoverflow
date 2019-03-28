@@ -1,6 +1,7 @@
 # StackOverflow
 
 Input data **(170 MB)**: http://alaska.epfl.ch/~dockermoocs/bigdata/stackoverflow.csv 
+
 place it in the folder: __src/main/resources/stackoverflow in your project directory.__
 
 The overall goal of this assignment is to implement a distributed k-means algorithm which clusters posts on the popular question-answer platform StackOverflow according to their score. Moreover, this clustering should be executed in parallel for different programming languages, and the results should be compared.
